@@ -1,0 +1,45 @@
+.aboutUsSection {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 2;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #021024;
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+}
+
+.brand {
+  font-weight: bold;
+  color: #0f6abb;
+}
+
+.brandHighlight {
+  color: #ea812b;
+}
+
+.description {
+  font-size: 1rem;
+  color: #1f1f1f;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+}

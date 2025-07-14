@@ -1,0 +1,37 @@
+.backgroundWrapper {
+  background-color: rgba(84, 131, 179, 0.4);
+  backdrop-filter: blur(6px);
+  padding: 3rem 1rem;
+  border-radius: 1rem;
+  max-width: 500px;
+  margin: 4rem auto 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #021024;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+
+  > div {
+    flex: 1;
+  }
+}

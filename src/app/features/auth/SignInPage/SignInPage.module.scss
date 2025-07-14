@@ -1,0 +1,54 @@
+.backgroundWrapper {
+  background-color: rgba(84, 131, 179, 0.4); // Fondo translúcido azul
+  backdrop-filter: blur(6px);
+  padding: 3rem 1rem;
+  border-radius: 1rem;
+  max-width: 500px;
+  margin: 4rem auto 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #021024;
+}
+
+.recover {
+  font-size: 0.9rem;
+  text-align: left;
+  color: #052659;
+  font-weight: 600;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.register {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  color: #052659;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

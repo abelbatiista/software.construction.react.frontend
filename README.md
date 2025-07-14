@@ -1,20 +1,42 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+## [12-heroes-app](https://github.com/abelbatiista/udemy.fh.react.client/tree/12-heroes-app)
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+- ### Topics
+  - Deep learning in SPA (Single Page Application)
+  - Different themes applied
+  - Multiple Routers
+  - Push and Replace History
+  - Read args through Url
+  - Query Params
+  - Apply filter using Query Strings
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+- ### Videos
+  - introduction
+  - Topics
+  - Showing final results
+  - Start App - HeroesApp
+  - First Router
+  - Active Route Class
+  - UseNavigate - Navigate Push and Replace
+  - Heroes List
+  - Heroes Cards
+  - Heroes Cards (part 2)
+  - Read args from url
+  - HeroPage Styles
+  - UseMemo Integration
+  - Implementing Animate.css
+  - SearchPage Design
+  - SearchComponent routes query params
+  - Show Heroes List
+  - Conditional Messages
+  - Source Repository
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+- ### Resources
+  - [Bootstrap Navbar](https://gist.github.com/Klerith/566b484ac6fe46c8fa949e61df671a18/)
+  - [React Router](https://reactrouter.com)
+  - [Migrate React Router](https://www.youtube.com/watch?v=FR7x0tqwafc/)
+  - [React Router Tutorial](https://reactrouter.com/6.4.4/start/tutorial#setup/)
+  - [Heroes Collection](https://gist.github.com/Klerith/934da045caae0fec3a1067d013926c46/)
+  - [Animate.css](https://animate.style)
+  - [Custom Hooks](https://github.com/Klerith/custom-hooks/blob/main/useForm/useForm.js/)
+  - [Name](https://www.uri.com/)
+  - [Source Repository](https://github.com/Klerith/react-heroes/tree/fin-seccion-14/)

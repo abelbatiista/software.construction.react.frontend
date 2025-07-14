@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["src/app/core/*"],
+      "@features/*": ["src/app/features/*"],
+      "@miscellaneous/*": ["src/app/miscellaneous/*"],
+      "@ui/*": ["src/app/ui/*"],
+      "@auth/*": ["src/app/features/auth/*"],
+      "@exception/*": ["src/app/features/exception/*"],
+      "@pages/*": ["src/app/features/pages/*"]
+    }
+  }
+}

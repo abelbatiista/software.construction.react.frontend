@@ -1,0 +1,58 @@
+.navbar {
+  background-color: rgba(110, 117, 129, 0.4);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.inner {
+  width: 100%;
+  padding: 0 32px;
+  margin: 0;
+  max-width: 1440px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  .human {
+    color: #C1E8FF;
+    font-weight: 600;
+  }
+
+  .together {
+    color: #5483B3;
+    font-weight: 700;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 48px;
+
+  a {
+    color: #C1E8FF;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.profile {
+  color: #C1E8FF !important;
+  font-size: 1.8rem;
+  cursor: pointer;
+  text-decoration: none;
+}

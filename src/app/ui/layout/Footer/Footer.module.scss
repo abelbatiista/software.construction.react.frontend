@@ -1,0 +1,28 @@
+.footer {
+  background-color: rgba(110, 117, 129, 0.4);
+  color: #c1ebff;
+  padding: 1rem 0;
+  margin-top: 4rem;
+
+  .logo {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+
+    .human {
+      color: #c1ebff;
+    }
+
+    .together {
+      color: #5483b3;
+    }
+  }
+
+  .socialIcon {
+    color: #c1ebff;
+  }
+
+  .socialLabel {
+    font-size: 0.9rem;
+  }
+}

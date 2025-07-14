@@ -1,0 +1,14 @@
+# Carpeta de salida
+dist
+build
+
+# Dependencias externas
+node_modules
+
+# Archivos específicos
+vite.config.js
+jest.config.js
+*.test.js
+*.spec.js
+__snapshots__
+coverage

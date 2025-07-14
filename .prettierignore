@@ -1,0 +1,17 @@
+# Ignorar la carpeta de salida
+dist
+build
+
+# Ignorar dependencias
+node_modules
+
+# Archivos de configuración
+*.config.js
+*.config.cjs
+
+# Test snapshots
+__snapshots__
+coverage
+
+# Otros archivos específicos
+package-lock.json

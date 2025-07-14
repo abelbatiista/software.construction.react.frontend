@@ -1,0 +1,30 @@
+.customButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 0;
+  color: #052659;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.6rem 1.6rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  .button-icon {
+    display: flex;
+    align-items: center;
+  }
+}
