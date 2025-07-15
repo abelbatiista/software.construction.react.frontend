@@ -4,7 +4,6 @@ import axios from 'axios';
 
 export const useAxios = (path, payload) => {
   const baseUri = 'https://prince-i9lj.onrender.com' + '/api';
-  // const baseUri = import.meta.env.VITE_BASE_URI + '/api';
   const uri = baseUri + '/' + path;
 
   const [response, setResponse] = useState(null);
