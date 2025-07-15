@@ -26,7 +26,7 @@ const ContactUsPage = () => {
             <Components.Form.Input label="Apellido" />
             <Components.Form.Input label="Email" />
             <Components.Form.Input label="Número de teléfono" />
-            <Components.Form.Textarea label="Mensaje" />
+            <Components.Form.TextArea label="Mensaje" />
             <div className={'d-flex justify-content-end'}>
               <Components.Form.Button>Enviar</Components.Form.Button>
             </div>
