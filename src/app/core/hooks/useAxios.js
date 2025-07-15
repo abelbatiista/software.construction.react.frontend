@@ -3,8 +3,8 @@ import { useState, useCallback } from 'react';
 import axios from 'axios';
 
 export const useAxios = (path, payload) => {
-  console.log(import.meta.env.VITE_BASE_URI);
-  const baseUri = import.meta.env.VITE_BASE_URI + '/api';
+  const baseUri = 'https://prince-i9lj.onrender.com' + '/api';
+  // const baseUri = import.meta.env.VITE_BASE_URI + '/api';
   const uri = baseUri + '/' + path;
 
   const [response, setResponse] = useState(null);
