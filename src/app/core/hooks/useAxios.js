@@ -3,9 +3,7 @@ import { useState, useCallback } from 'react';
 import axios from 'axios';
 
 export const useAxios = (path, payload) => {
-  const baseUri = 'http://localhost:9000/api';
-  // const baseUri =
-  //   'https://ef37-2001-1308-27b9-e600-71a7-6d94-6c10-9d7c.ngrok-free.app/api';
+  const baseUri = import.meta.env.VITE_BASE_URI + '/api';
   const uri = baseUri + '/' + path;
 
   const [response, setResponse] = useState(null);
