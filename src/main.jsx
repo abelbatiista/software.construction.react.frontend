@@ -13,7 +13,7 @@ import { UserProvider } from '@core/providers/User/UserContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/udemy.fh.react.client">
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline>
           <Toast.ToastProvider>
