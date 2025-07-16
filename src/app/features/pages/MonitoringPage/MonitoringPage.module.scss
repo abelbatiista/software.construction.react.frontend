@@ -1,0 +1,114 @@
+.bgWrapper {
+  backdrop-filter: blur(10px);
+  padding: 3rem 1rem;
+  background: rgba(84, 131, 179, 0.7);
+  border-radius: 1rem;
+  margin: 3rem auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.cardTitle {
+  font-weight: 600;
+  color: #012024;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+
+    > * {
+      flex: 1;
+    }
+  }
+}
+
+.cardCentered {
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.progressBarWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  color: #012024;
+  margin-top: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.progressBar {
+  flex: 1;
+  position: relative;
+  height: 10px;
+  background-color: #e0e0e0;
+  margin: 0 1rem;
+  border-radius: 5px;
+}
+
+.progressLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 10px;
+  background: #b4d7f4;
+  border-radius: 5px;
+}
+
+.truckIcon {
+  color: #0F3D5F;
+  position: absolute;
+  top: -20px;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+}

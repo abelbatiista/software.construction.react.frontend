@@ -3,6 +3,7 @@ import { useState, useCallback } from 'react';
 import axios from 'axios';
 
 export const useAxios = (path, payload) => {
+  // const baseUri = 'http://localhost:9000' + '/api';
   const baseUri = 'https://prince-i9lj.onrender.com' + '/api';
   const uri = baseUri + '/' + path;
 
@@ -11,6 +12,7 @@ export const useAxios = (path, payload) => {
   const [loading, setLoading] = useState(null);
 
   const handleError = (error) => {
+    console.log(error);
     setError(error);
     setLoading(false);
   };
@@ -19,7 +21,7 @@ export const useAxios = (path, payload) => {
     setLoading(true);
     try {
       const response = await axios.get(uri);
-      setResponse(response);
+      setResponse(response?.data);
       setLoading(false);
     } catch (error) {
       handleError(error?.response?.data || error);
@@ -30,13 +32,10 @@ export const useAxios = (path, payload) => {
     setLoading(true);
     try {
       const response = await axios.post(uri, payload);
-      console.log({ response });
       setResponse(response?.data);
       setLoading(false);
-      return response?.data;
     } catch (error) {
       handleError(error?.response?.data || error);
-      return error?.response?.data;
     }
   }, [uri, payload]);
 
@@ -44,7 +43,7 @@ export const useAxios = (path, payload) => {
     setLoading(response);
     try {
       const response = await axios.put(uri, payload);
-      setResponse(response);
+      setResponse(response?.data);
       setLoading(false);
     } catch (error) {
       handleError(error?.response?.data || error);
@@ -55,7 +54,7 @@ export const useAxios = (path, payload) => {
     setLoading();
     try {
       const response = await axios.delete(uri);
-      setResponse(response);
+      setResponse(response?.data);
       setLoading(false);
     } catch (error) {
       handleError(error?.response?.data || error);

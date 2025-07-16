@@ -1,6 +1,6 @@
 import { useAxios } from '@core/hooks';
 
-const useSignIn = (path, payload) => {
+const useRecoverPassword = (path, payload) => {
   const { post, response, error, loading } = useAxios(path, payload);
 
   const onClick = () => {
@@ -15,4 +15,4 @@ const useSignIn = (path, payload) => {
   };
 };
 
-export default useSignIn;
+export default useRecoverPassword;

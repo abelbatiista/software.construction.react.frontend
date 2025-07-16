@@ -6,9 +6,9 @@ import { Navigate, Outlet, Route, Routes } from 'react-router';
 import AboutUsPage from './AboutUsPage/AboutUsPage';
 import ContactUsPage from './ContactUsPage/ContactUsPage';
 import CreditCardInfoPage from './CreditCardInfoPage/CreditCardInfoPage';
+import DashboardPage from './DashboardPage/DashboardPage';
 import HomePage from './HomePage/HomePage';
 import UserDetailPage from './UserDetailPage/UserDetailPage';
-import DashboardPage from './DashboardPage/DashboardPage';
 
 const PagesRouter = () => {
   return (

@@ -1,12 +1,16 @@
+import { useEffect } from 'react';
+
+import { PaymentMethods } from '@core/constants';
 import { useForm } from '@core/hooks/index.js';
+import { Toast } from '@core/providers';
 import useAddCreditCard from '@pages/hooks/useAddCreditCard.js';
 import { Input, Button, Select } from '@ui/components/Form';
 import { useNavigate } from 'react-router';
-import { Toast } from '@core/providers';
+
 import styles from './CreditCardInfoPage.module.scss';
-import { PaymentMethods } from '@core/constants';
 
 const CreditCardInfoPage = () => {
+  const navigate = useNavigate();
   const { addToast } = Toast.useToast();
   const { handleChange, handleReset, formState } = useForm({
     fullName: '',
@@ -19,22 +23,32 @@ const CreditCardInfoPage = () => {
   const { fullName, method, cardNumber, expirationDate, cvc, amount } =
     formState;
 
-  const { onClick: addCreditCard } = useAddCreditCard('credit-card', {
+  const {
+    onClick: addCreditCard,
+    response,
+    loading,
+    error,
+  } = useAddCreditCard('credit-card', {
     ...formState,
   });
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    if (response) {
+      handleReset();
+      addToast('¡Ha realizado su aporte correctamente!');
+      navigate('/pages/dashboard', { replace: true });
+    }
+  }, [response]);
 
-  const goToHome = () => {
-    navigate('/pages');
-  };
+  useEffect(() => {
+    if (error) {
+      addToast('¡Ha ocurrido un error al realizar el pago!', 'error');
+    }
+  }, [error]);
 
-  const handleSubmit = () => {
-    addCreditCard();
-    addToast('¡Donación hecha correctamente!');
-    handleReset();
-    goToHome();
-  };
+  useEffect(() => {
+    console.log({ loading });
+  }, [loading]);
 
   return (
     <div className={styles.backgroundWrapper}>
@@ -66,7 +80,7 @@ const CreditCardInfoPage = () => {
         <div className={styles.row}>
           <Input
             type={'text'}
-            label="Fecha de Expiración"
+            label="Fecha Exp"
             placeholder="MM/AA"
             onChange={handleChange}
             value={expirationDate}
@@ -89,7 +103,7 @@ const CreditCardInfoPage = () => {
             name={'amount'}
           />
         </div>
-        <Button fullWidth onClick={handleSubmit}>
+        <Button fullWidth onClick={addCreditCard}>
           Confirmar Pago
         </Button>
       </div>

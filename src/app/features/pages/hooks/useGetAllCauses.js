@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 
 import { useAxios } from '@core/hooks';
 
-const useGetUser = (path, payload) => {
-  const { get, response, error, loading } = useAxios(path, payload);
+const useGetAllCauses = (path) => {
+  const { get, response, error, loading } = useAxios(path);
 
   useEffect(() => {
     get().then();
@@ -16,4 +16,4 @@ const useGetUser = (path, payload) => {
   };
 };
 
-export default useGetUser;
+export default useGetAllCauses;

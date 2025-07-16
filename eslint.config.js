@@ -1,9 +1,9 @@
 import js from '@eslint/js';
 import eslintImport from 'eslint-plugin-import';
+import eslintPluginJest from 'eslint-plugin-jest';
 import prettierPlugin from 'eslint-plugin-prettier';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import eslintPluginJest from 'eslint-plugin-jest';
 import globals from 'globals';
 
 export default [
@@ -35,6 +35,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'import/no-useless-path-segments': ['error', { noUselessIndex: true }],
       'quotes': ['error', 'single', { avoidEscape: true }],
       // 'comma-dangle': ['error', 'always-multiline'],
       'object-curly-spacing': ['error', 'always'],
@@ -59,6 +60,14 @@ export default [
         },
       ],
       'prettier/prettier': 'error',
+    },
+    settings: {
+      'import/extensions': ['.js', '.jsx'],
+      'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx'],
+        },
+      },
     },
   },
   {

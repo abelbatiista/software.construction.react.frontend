@@ -6,6 +6,11 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const setAuth = (auth) => {
+    if (!auth) {
+      clearAuth();
+      return;
+    }
+
     setUser(auth);
     localStorage.setItem('auth', JSON.stringify(auth));
   };

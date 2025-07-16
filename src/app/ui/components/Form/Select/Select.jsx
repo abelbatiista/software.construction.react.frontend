@@ -7,23 +7,35 @@ const Select = ({
   onChange,
   placeholder = 'Seleccione una opción',
   className = '',
+  label,
+  id,
 }) => {
+  const selectId = id || `select-${label?.toLowerCase().replace(/\s+/g, '-')}`;
+
   return (
-    <select
-      className={`${styles.customSelect} ${className}`}
-      value={value}
-      onChange={onChange}
-      name={name}
-    >
-      <option value="" disabled>
-        {placeholder}
-      </option>
-      {options.map((opt, index) => (
-        <option key={index} value={opt.value}>
-          {opt.label}
+    <div>
+      {label && (
+        <label htmlFor={selectId} className={styles.label}>
+          {label}
+        </label>
+      )}
+      <select
+        id={selectId}
+        className={`${styles.customSelect} ${className}`}
+        value={value}
+        onChange={onChange}
+        name={name}
+      >
+        <option value="" disabled>
+          {placeholder}
         </option>
-      ))}
-    </select>
+        {options.map((opt, index) => (
+          <option key={index} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 

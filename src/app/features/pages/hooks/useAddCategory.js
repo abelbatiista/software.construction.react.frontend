@@ -1,6 +1,6 @@
 import { useAxios } from '@core/hooks';
 
-const useSignIn = (path, payload) => {
+const useAddCategory = (path, payload) => {
   const { post, response, error, loading } = useAxios(path, payload);
 
   const onClick = () => {
@@ -8,11 +8,11 @@ const useSignIn = (path, payload) => {
   };
 
   return {
+    onClick,
     response,
     error,
     loading,
-    onClick,
   };
 };
 
-export default useSignIn;
+export default useAddCategory;

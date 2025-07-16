@@ -25,18 +25,42 @@ const Footer = () => {
             <Typography className={styles.socialLabel}>
               Redes Sociales:
             </Typography>
-            <IconButton className={styles.socialIcon} size="small">
-              <MusicNoteIcon />
-            </IconButton>
-            <IconButton className={styles.socialIcon} size="small">
-              <XIcon />
-            </IconButton>
-            <IconButton className={styles.socialIcon} size="small">
-              <InstagramIcon />
-            </IconButton>
-            <IconButton className={styles.socialIcon} size="small">
-              <FacebookIcon />
-            </IconButton>
+            <a
+              href="https://www.tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconButton className={styles.socialIcon} size="small">
+                <MusicNoteIcon />
+              </IconButton>
+            </a>
+            <a
+              href="https://www.twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconButton className={styles.socialIcon} size="small">
+                <XIcon />
+              </IconButton>
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconButton className={styles.socialIcon} size="small">
+                <InstagramIcon />
+              </IconButton>
+            </a>
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconButton className={styles.socialIcon} size="small">
+                <FacebookIcon />
+              </IconButton>
+            </a>
           </Stack>
         </Stack>
       </Container>

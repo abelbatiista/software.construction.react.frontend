@@ -41,3 +41,16 @@
     }
   }
 }
+
+.link {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  color: #052659;
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,20 +1,30 @@
+import { useEffect } from 'react';
+
 import useSignIn from '@auth/hooks/useSignIn.js';
 import { useForm } from '@core/hooks/index.js';
 import { Toast } from '@core/providers';
+import { useUser } from '@core/providers/User/UserContext.jsx';
 import { Input, Button } from '@ui/components/Form';
 import { useNavigate } from 'react-router';
 
 import styles from './SignInPage.module.scss';
 
 const SignInPage = () => {
+  const { setAuth } = useUser();
   const { addToast } = Toast.useToast();
+
   const { handleChange, handleReset, formState } = useForm({
     email: '',
     password: '',
   });
   const { email, password } = formState;
 
-  const { onClick: signIn } = useSignIn('auth/sign-in', {
+  const {
+    onClick: signIn,
+    response,
+    loading,
+    error,
+  } = useSignIn('auth/sign-in', {
     ...formState,
   });
 
@@ -29,21 +39,35 @@ const SignInPage = () => {
   };
 
   const goToHome = () => {
-    navigate('/pages');
+    navigate('/pages/dashboard');
   };
 
-  const goToDonations = () => {
-    signIn();
-    handleReset();
-    addToast('¡Ha iniciado sesión correctamente!');
-    navigate('/pages/donations', { replace: true });
-  };
+  useEffect(() => {
+    if (response) {
+      const auth = response?.data?._doc;
+      handleReset();
+      addToast('¡Ha iniciado sesión correctamente!');
+      setAuth(auth);
+      navigate('/pages/donations', { replace: true });
+    }
+  }, [response]);
+
+  useEffect(() => {
+    if (error) {
+      addToast('¡Credenciales inválidas!', 'error');
+    }
+  }, [error]);
+
+  useEffect(() => {
+    console.log({ loading });
+  }, [loading]);
 
   return (
     <div className={styles.backgroundWrapper}>
       <div className={styles.card}>
         <h1 className={styles.title}>Bienvenido</h1>
         <Input
+          type={'email'}
           label={'Email'}
           placeholder="email@example.com"
           onChange={handleChange}
@@ -63,15 +87,15 @@ const SignInPage = () => {
           ¿Olvidaste tu contraseña?
         </p>
 
-        <Button fullWidth onClick={goToDonations}>
+        <Button fullWidth onClick={signIn}>
           Iniciar Sesión
         </Button>
 
-        <p className={styles.register} onClick={goToSignUp}>
-          Registrarte
+        <p className={styles.link} onClick={goToSignUp}>
+          ¿No tienes cuenta? Regístrate aquí
         </p>
 
-        <p className={styles.register} onClick={goToHome}>
+        <p className={styles.link} onClick={goToHome}>
           Volver al inicio
         </p>
       </div>

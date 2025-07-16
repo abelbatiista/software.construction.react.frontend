@@ -3,24 +3,24 @@ import styles from './DashboardPage.module.scss';
 const DashboardPage = () => {
   const cards = [
     {
-      image: '/images/monitoring-1.png',
+      image: '/images/dashboard-1.png',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Una causa destinada a suplir alimentos a familias de escasos recursos en comunidades rurales de Cotuí.',
     },
     {
-      image: '/images/monitoring-2.png',
+      image: '/images/dashboard-2.png',
       description:
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        'Donaciones para reparar techos y pisos de casas afectadas por las lluvias en zonas vulnerables.',
     },
     {
-      image: '/images/monitoring-3.png',
+      image: '/images/dashboard-3.png',
       description:
-        'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Iniciativa para llevar atención médica gratuita y medicamentos a comunidades aisladas del este del país.',
     },
     {
-      image: '/images/monitoring-4.png',
+      image: '/images/dashboard-4.png',
       description:
-        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        'Causa enfocada en la entrega de útiles escolares, mochilas y recursos tecnológicos a estudiantes en situación de pobreza.',
     },
   ];
 

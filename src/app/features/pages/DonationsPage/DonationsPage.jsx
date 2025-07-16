@@ -1,63 +1,51 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { Toast } from '@core/providers/index.js';
+import useGetAllCauses from '@pages/hooks/useGetAllCauses.js';
 import { ModalForm } from '@ui/components';
-import { Button, Input, Select } from '@ui/components/Form';
+import { Button } from '@ui/components/Form';
 
 import styles from './DonationsPage.module.scss';
-
-const causes = [
-  {
-    title: 'Se necesita alimento para la comunidad de la cañitas',
-    progress: 70,
-    image: '/images/donations-1.png',
-    category: 'Alimentos',
-  },
-  {
-    title: 'Se necesita agua para la comunidad de los mamayes',
-    progress: 90,
-    image: '/images/donations-2.png',
-    category: 'Agua',
-  },
-  {
-    title: 'Se necesita ropa para la comunidad de los rios',
-    progress: 50,
-    image: '/images/donations-3.png',
-    category: 'Ropa',
-  },
-  {
-    title:
-      'Se necesita medicamentos para la comunidad del barrio las enfermeras',
-    progress: 10,
-    image: '/images/donations-4.png',
-    category: 'Medicina',
-  },
-];
-
-const options = [
-  {
-    label: 'Agua',
-    value: 'water',
-  },
-  {
-    label: 'Alimentos',
-    value: 'food',
-  },
-  {
-    label: 'Medicina',
-    value: 'medicine',
-  },
-  {
-    label: 'Ropa',
-    value: 'clothes',
-  },
-];
+import {
+  AddCauseContent,
+  AddCategoryContent,
+  ContributeCauseContent,
+} from './Modals';
 
 const DonationsPage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
+  const [options, setOptions] = useState([]);
 
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
+  const { response } = useGetAllCauses('cause');
+
+  const openModal = (content) => {
+    setModalOpen(true);
+    setModalContent(content);
+  };
+
+  const closeModal = (dismiss) => {
+    setModalOpen(false);
+    setModalContent(null);
+    if (dismiss) return;
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    if (response) {
+      setOptions(
+        response?.data?.map(
+          ({ name, hood, city, stock, needed, categoryId }, index) => ({
+            title: name + ', ' + hood + ', ' + city,
+            progress: Math.ceil((stock / needed) * 100),
+            image: `/images/donations-${(index % 4) + 1}.png`,
+            category: categoryId,
+          })
+        ) || []
+      );
+    }
+  }, [response, isModalOpen]);
 
   return (
     <div className={styles.bgWrapper}>
@@ -65,11 +53,37 @@ const DonationsPage = () => {
         <div className={styles.title}>
           Entonces quieres ser parte del equipo
         </div>
-        <div className={styles.select}>
-          <Button onClick={openModal}>Elige tu causa</Button>
+        <div className="d-inline-flex p-2 m-2">
+          <div className={'mx-2'}>
+            <Button
+              onClick={() =>
+                openModal(<ContributeCauseContent closeModal={closeModal} />)
+              }
+            >
+              Aporta a la causa
+            </Button>
+          </div>
+          <div className={'mx-2'}>
+            <Button
+              onClick={() =>
+                openModal(<AddCauseContent closeModal={closeModal} />)
+              }
+            >
+              Añadir una causa
+            </Button>
+          </div>
+          <div className={'mx-2'}>
+            <Button
+              onClick={() =>
+                openModal(<AddCategoryContent closeModal={closeModal} />)
+              }
+            >
+              Añadir una categoria
+            </Button>
+          </div>
         </div>
         <div className={styles.cardsWrapper}>
-          {causes.map((cause, idx) => (
+          {options.map((cause, idx) => (
             <div
               onMouseEnter={() => setIsHover(true)}
               onAnimationEnd={() => setIsHover(false)}
@@ -87,27 +101,8 @@ const DonationsPage = () => {
               <p className={styles.percentage}>{cause.progress}%</p>
             </div>
           ))}
-          <ModalForm isOpen={isModalOpen} onClose={closeModal}>
-            <div className={styles.row}>
-              <Select options={options} placeholder={'Elige tu causa'} />
-            </div>
-            <div className={styles.row}>
-              <Input
-                type={'text'}
-                label={'¿Qué objeto deseas donar?'}
-                placeholder="Un pantalón, unas manzanas..."
-              />
-            </div>
-            <div className={styles.row}>
-              <Input
-                type={'number'}
-                label={'¿Qué cantidad deseas donar?'}
-                placeholder="11"
-              />
-            </div>
-            <div className={styles.row}>
-              <Button fullWidth>Donar</Button>
-            </div>
+          <ModalForm isOpen={isModalOpen} onClose={() => closeModal(true)}>
+            {modalContent}
           </ModalForm>
         </div>
       </div>
