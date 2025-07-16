@@ -9,6 +9,7 @@ import CreditCardInfoPage from './CreditCardInfoPage/CreditCardInfoPage';
 import DashboardPage from './DashboardPage/DashboardPage';
 import HomePage from './HomePage/HomePage';
 import UserDetailPage from './UserDetailPage/UserDetailPage';
+import ContributionPage from './ContributionPage/ContributionPage.jsx';
 
 const PagesRouter = () => {
   return (
@@ -22,6 +23,7 @@ const PagesRouter = () => {
         <Route path={'contact-us'} element={<ContactUsPage />} />
         <Route path={'donations'} element={<DonationsPage />} />
         <Route path={'participation'} element={<ParticipationPage />} />
+        <Route path={'contribution'} element={<ContributionPage />} />
         <Route path={'monitoring'} element={<MonitoringPage />} />
         <Route path={'user-detail'} element={<UserDetailPage />} />
         <Route

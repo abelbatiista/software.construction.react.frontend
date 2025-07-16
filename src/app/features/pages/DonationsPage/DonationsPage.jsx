@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import { Toast } from '@core/providers/index.js';
 import useGetAllCauses from '@pages/hooks/useGetAllCauses.js';
 import { ModalForm } from '@ui/components';
 import { Button } from '@ui/components/Form';
@@ -11,12 +10,16 @@ import {
   AddCategoryContent,
   ContributeCauseContent,
 } from './Modals';
+import { useUser } from '@core/providers/User/UserContext.jsx';
 
 const DonationsPage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [modalContent, setModalContent] = useState(null);
   const [options, setOptions] = useState([]);
+
+  const { auth } = useUser();
+  const [user, setUser] = useState(null);
 
   const { response } = useGetAllCauses('cause');
 
@@ -31,6 +34,10 @@ const DonationsPage = () => {
     if (dismiss) return;
     window.location.reload();
   };
+
+  useEffect(() => {
+    setUser(auth);
+  }, [auth]);
 
   useEffect(() => {
     if (response) {
@@ -50,9 +57,7 @@ const DonationsPage = () => {
   return (
     <div className={styles.bgWrapper}>
       <div className={styles.container}>
-        <div className={styles.title}>
-          Entonces quieres ser parte del equipo
-        </div>
+        <div className={styles.title}>Aporta tu granito de arena</div>
         <div className="d-inline-flex p-2 m-2">
           <div className={'mx-2'}>
             <Button
@@ -63,24 +68,28 @@ const DonationsPage = () => {
               Aporta a la causa
             </Button>
           </div>
-          <div className={'mx-2'}>
-            <Button
-              onClick={() =>
-                openModal(<AddCauseContent closeModal={closeModal} />)
-              }
-            >
-              Añadir una causa
-            </Button>
-          </div>
-          <div className={'mx-2'}>
-            <Button
-              onClick={() =>
-                openModal(<AddCategoryContent closeModal={closeModal} />)
-              }
-            >
-              Añadir una categoria
-            </Button>
-          </div>
+          {user?.role === 'admin' && (
+            <>
+              <div className={'mx-2'}>
+                <Button
+                  onClick={() =>
+                    openModal(<AddCauseContent closeModal={closeModal} />)
+                  }
+                >
+                  Añadir una causa
+                </Button>
+              </div>
+              <div className={'mx-2'}>
+                <Button
+                  onClick={() =>
+                    openModal(<AddCategoryContent closeModal={closeModal} />)
+                  }
+                >
+                  Añadir una categoria
+                </Button>
+              </div>
+            </>
+          )}
         </div>
         <div className={styles.cardsWrapper}>
           {options.map((cause, idx) => (

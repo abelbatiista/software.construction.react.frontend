@@ -1,40 +1,75 @@
+import { Button } from '@ui/components/Form';
+import { useNavigate } from 'react-router';
+
 import styles from './HomePage.module.scss';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  const goToSignIn = () => {
+    navigate('/auth/sign-in');
+  };
+
+  const goToCreditCard = () => {
+    navigate('/pages/credit-card-information');
+  };
+
+  const goToContactUs = () => {
+    navigate('/pages/contact-us');
+  };
+
   return (
-    <div className={styles.customCard}>
-      <div className={'row'}>
-        <div className={'col-12 col-md-6'}>
-          <h2 className={styles.quote}>
-            “Mientras que nuestros cuerpos nos lo permitan, seguiremos llegando
-            por un bien mayor”
-          </h2>
-          <p className={styles.description}>
-            <strong className={styles.brand}>
-              Human<span>Together</span>
-            </strong>{' '}
-            es un nace de la idea de un grupo de amigos que desde pequeños les
-            educaron a ser empáticos con las personas, cuando estos crecieron,
-            decidieron que no solo se quedarían ayudando en su comunidad,
-            quisieron llegar hasta donde la vida se los permitiera, con la única
-            meta de poder ayudar a la mayor cantidad de personas posible.
+    <>
+      <div>
+        <div className={'row text-center'}>
+          <p className={'fs-1 fw-bold text-light'}>
+            Los pequeños esfuerzo hacen un gran cambio
           </p>
         </div>
-        <div className={'col-12 col-md-2'}>
-          <img src={'/images/home-1.png'} alt={'Home Page'} />
-        </div>
-        <div className={'col-12 col-md-2'}>
-          <p className={styles.infoText}>
-            Ofrecemos insumos básicos para las personas que mas lo necesitan,
-            desde medicina, comida, ropa y productos de higiene personal.
-          </p>
-          <img src={'/images/home-2.png'} alt={'Home Page'} />
-        </div>
-        <div className={'col-12 col-md-2'}>
-          <img src={'/images/home-3.png'} alt={'Home Page'} />
+        <div className={'d-flex justify-content-center'}>
+          <Button onClick={goToSignIn}>Se parte del equipo</Button>
+          <a
+            onClick={goToCreditCard}
+            role={'button'}
+            className={'fs-5 text-light m-1 fw-bold'}
+          >
+            Aporta tu granito
+          </a>
         </div>
       </div>
-    </div>
+      <div className={styles.homeSection}>
+        <div className="row align-items-center">
+          <div className="col-12 col-md-6">
+            <img
+              src="/images/about-us-1.png"
+              alt="Imagen HumanTogether"
+              className={styles.image}
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <h2 className={styles.quote}>
+              Bienvenido a{' '}
+              <span className={styles.brand}>
+                Human<span className={styles.brandHighlight}>Together</span>
+              </span>
+            </h2>
+            <p className={styles.description}>
+              Somos una ONG sin fines de lucro, la cual tiene la misión de
+              brindar a las personas que más lo necesitan un poco de alegría y
+              ayuda. <br />
+              <br />
+              Tenemos la misión de ayudar a esas personas que no tuvieron la
+              oportunidad de contar con las necesidades básicas que todo humano
+              por derecho tiene, así intentando unir, desde la persona con más
+              dinero, hasta la que peor la pase en su día a día.
+            </p>
+            <div className={'d-flex justify-content-center'}>
+              <Button onClick={goToContactUs}>Más sobre nosotros</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

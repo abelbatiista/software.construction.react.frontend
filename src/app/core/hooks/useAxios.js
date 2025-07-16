@@ -3,6 +3,8 @@ import { useState, useCallback } from 'react';
 import axios from 'axios';
 
 export const useAxios = (path, payload) => {
+  const mockUri = import.meta.env.VITE_API_URL;
+  console.log({ mockUri });
   // const baseUri = 'http://localhost:9000' + '/api';
   const baseUri = 'https://prince-i9lj.onrender.com' + '/api';
   const uri = baseUri + '/' + path;
